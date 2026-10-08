@@ -90,8 +90,8 @@ of framing, versus 49+ bytes of names and separators in HTTP/1.1 text.
    bcurl dump alone. Fix (optional): trace the prefaces in bcurl.
 4. Header order in the response (server, etag, last-modified, cache-control,
    content-type, content-length) differs from the order listed in SPEC
-   section 6. Fix: the "order carries no meaning" sentence in section 5.
+   section 6. Fix: the "order carries no meaning" sentence in section 4.
 5. flags=0x00 on RESPONSE means "DATA frames follow". Stated in 3, but
-   a reader must connect it to END_STREAM. Fix: add the sentence to 3.2.
+   a reader must connect it to END_STREAM. Fix: add the sentence to section 3.
 
 Every other byte was decodable from the spec text alone.

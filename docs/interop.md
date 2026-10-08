@@ -36,12 +36,12 @@ skipped and decoded both correctly.
 
 ## Ambiguities found (spec fixes)
 
-1. Static table indices are 1-based and index 0 is invalid. Section 5
+1. Static table indices are 1-based and index 0 is invalid. Section 4
    lists the table but never says "1-based". Fix: add the sentence.
 2. last-modified format (IMF-fixdate, GMT) is not stated. Fix in section 6.
 3. The reserved top bit of Stream ID must be masked by receivers
    (`st & 0x7fffffff`). Spec says "ignore" but not that the ID is the
-   low 31 bits. Fix: state it in section 1.
+   low 31 bits. Fix: state it in section 2.
 4. A response with a body but no content-length is not forbidden for
    non-200 codes. Fix: say content-length is REQUIRED whenever DATA follows.
 5. Client behavior for DATA on another stream is only implied. Fix: say

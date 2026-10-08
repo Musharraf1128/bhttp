@@ -2,3 +2,6 @@ bcurl
 bload
 bserve
 
+bserve_*
+bcurl_*
+www_bench/

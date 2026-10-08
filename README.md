@@ -33,3 +33,17 @@ and client (`bcurl`). The protocol is defined in SPEC.md.
     frame/   header, preface, payload codecs     hpack/   static table + literal
     server/  bserve logic                        client/  bcurl logic
     cmd/     binaries                            docs/    hexdump, interop, bench
+
+## Interop (clean-room Python client, written from SPEC.md)
+    dd if=/dev/urandom of=www/100k.bin bs=1k count=100; : > www/empty.txt
+    ./bserve ./www 9000 &
+    python3 interop/pyclient.py 127.0.0.1 9000 /index.html /nope /100k.bin /empty.txt /../etc/passwd /index.html
+
+## Benchmarks (throughput by frame size; rewrites docs/bench.md's table, restores frame/header.go)
+    ./bench.sh
+
+## Docs
+    SPEC.md              the protocol (the deliverable)
+    docs/hexdump.md      annotated request + response, every byte
+    docs/interop.md      second-implementation report and spec fixes
+    docs/bench.md        wire bytes, throughput, idle memory, abuse tests
